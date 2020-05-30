@@ -10,6 +10,7 @@ import mongoose from "mongoose";
 import bluebird from "bluebird";
 import { MONGODB_URI, SESSION_SECRET } from "./util/secrets";
 import logger from "./util/logger";
+import cors from "cors";
 
 const MongoStore = mongo(session);
 
@@ -38,6 +39,7 @@ app.set("view engine", "pug");
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 app.use(session({
     resave: true,
     saveUninitialized: true,
