@@ -1,6 +1,3 @@
-//https://github.com/microsoft/TypeScript-Node-Starter
-//https://www.digitalocean.com/community/tutorials/nodejs-jwt-expressjs
-//https://medium.com/better-programming/a-practical-guide-for-jwt-authentication-using-nodejs-and-express-d48369e7e6d4
 import errorhandler from "errorhandler";
 
 import app from "./app";
