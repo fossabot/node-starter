@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
-import jwt from "jsonwebtoken";
 import { User } from "../../models/User";
-import { JWTUser } from "../../middlewares/authenticate";
 
 export const createUser = async (req: Request, res: Response) => {
     const { email, password } = req.body;
