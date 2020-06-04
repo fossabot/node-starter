@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import compression from "compression";
 import session from "express-session";
 import bodyParser from "body-parser";
@@ -11,6 +11,9 @@ import bluebird from "bluebird";
 import { MONGODB_URI, SESSION_SECRET } from "./util/secrets";
 import logger from "./util/logger";
 import cors from "cors";
+import swaggerUI from "swagger-ui-express";
+import swaggerJSDoc from "swagger-jsdoc";
+import { swaggerOptions } from "./swagger";
 
 const MongoStore = mongo(session);
 
@@ -55,6 +58,15 @@ app.use(lusca.xssProtection(true));
 app.use(
     express.static(path.join(__dirname, "public"), { maxAge: 31557600000 })
 );
+
+const swaggerSpec = swaggerJSDoc(swaggerOptions);
+
+app.get("/swagger.json", (req: Request, res: Response) => {
+    res.setHeader("Content-Type", "application/json");
+    res.send(swaggerSpec);
+});
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 app.get("/home", homeController.home);
 app.use(routes);

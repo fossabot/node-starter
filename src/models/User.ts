@@ -45,7 +45,7 @@ const comparePassword: comparePasswordFunction = function (candidatePassword, cb
 const generateJWTToken: generateJWTTokenFunction = function() {
     return generateJWT({
         email: this.email,
-        id: this.id
+        _id: this._id
     });
 };
 

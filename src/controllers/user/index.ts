@@ -72,7 +72,7 @@ export const loginUser = async (req: Request, res: Response) => {
 
 export const getCurrentUser = async (req: Request, res: Response) => {
     const { user } = req;
-    if (user.id === req.params.userId) {
+    if (user._id === req.params.userId) {
         return res.status(200).json({
             message: "Same User",
             user
@@ -80,6 +80,6 @@ export const getCurrentUser = async (req: Request, res: Response) => {
     }
     return res.status(401).json({
         error: true,
-        errors: "Different User Id"
+        errors: "Different User ID"
     });
 };

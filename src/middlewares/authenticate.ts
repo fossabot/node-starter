@@ -2,7 +2,7 @@ import { Response, Request, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
 export type JWTUser = {
-    id: string;
+    _id: string;
     email: string;
 };
 
