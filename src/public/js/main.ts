@@ -1,3 +1,3 @@
 $(document).on('ready', () => {
-    //write javascript code here
+  //write javascript code here
 });
