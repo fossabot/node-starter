@@ -1,6 +1,8 @@
 import errorhandler from 'errorhandler';
-
+import socketIO, { Socket } from 'socket.io';
+import logger from './util/logger';
 import app from './app';
+import { ChatData } from './types/socket/chat';
 
 app.use(errorhandler());
 
@@ -11,6 +13,21 @@ const server = app.listen(app.get('port'), () => {
     app.get('env')
   );
   console.log('  Press CTRL-C to stop\n');
+});
+const io = socketIO(server);
+io.on('connection', (socket: Socket) => {
+  logger.debug(`socket connected: ${socket.id}`);
+  socket.on('disconnect', () => {
+    logger.debug(`socket disconnected: ${socket.id}`);
+  });
+  socket.on('join', (roomID: string) => {
+    socket.join(roomID);
+  });
+  socket.on('chat', (data: ChatData) => {
+    const { roomID, message } = data;
+    logger.debug(`msg: ${message}, roomID: ${roomID}`);
+    io.to(roomID).emit('chat', message);
+  });
 });
 
 export default server;
