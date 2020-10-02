@@ -14,7 +14,9 @@ const server = app.listen(app.get('port'), () => {
   );
   console.log('  Press CTRL-C to stop\n');
 });
-const io = socketIO(server);
+const io = socketIO(server, {
+  path: '/socketio'
+});
 io.on('connection', (socket: Socket) => {
   logger.debug(`socket connected: ${socket.id}`);
   socket.on('disconnect', () => {

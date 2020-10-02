@@ -1,0 +1,23 @@
+version: "3"
+services:
+    backend:
+        container_name: node-backend
+        build:
+            context: .
+            dockerfile: ./Dockerfile.dev
+        ports:
+            - "3000:3000"
+        environment:
+            - MONGODB_URI_LOCAL=mongodb://database:27017/node-starter
+        volumes:
+            - "/usr/app/node_modules"
+            - "./:/usr/app"
+        depends_on:
+            - database
+    database:
+        image: mongo
+        container_name: mongo-container
+        restart: always
+        command: ["--bind_ip_all"]
+        ports:
+            - "27017-27019:27017-27019"
