@@ -42,3 +42,9 @@ export default server;
 //https://medium.com/better-programming/how-to-setup-continuous-integration-ci-with-react-circleci-and-github-e0efd5040b03
 //https://alligator.io/workflow/continuous-integration-with-circleci/
 //https://www.freecodecamp.org/news/how-to-set-up-continuous-integration-and-deployment-for-your-react-app-d09ae4525250/
+
+//https://stackoverflow.com/questions/34559557/how-to-enable-authentication-on-mongodb-through-docker
+//https://dev.to/sonyarianto/how-to-spin-mongodb-server-with-docker-and-docker-compose-2lef
+//https://medium.com/faun/managing-mongodb-on-docker-with-docker-compose-26bf8a0bbae3
+//https://www.code4it.dev/blog/run-mongodb-on-docker
+//https://itnext.io/dockerize-a-node-js-app-connected-to-mongodb-64fdeca94797
