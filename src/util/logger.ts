@@ -9,6 +9,9 @@ const options: winston.LoggerOptions = {
   ]
 };
 
+/**
+ * Logger. Duh!
+ */
 const logger = winston.createLogger(options);
 
 if (process.env.NODE_ENV !== 'production') {

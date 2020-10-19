@@ -1,3 +1,8 @@
+/**
+ * This is the doc comment for User.ts
+ * @packageDocumentation
+ */
+
 import mongoose from 'mongoose';
 import bCrypt from 'bcrypt-nodejs';
 import { generateJWT } from '../util/jwt';
@@ -42,6 +47,11 @@ userSchema.pre('save', function save(next) {
   });
 });
 
+/**
+ *
+ * @param candidatePassword user password
+ * @param cb callback function
+ */
 const comparePassword: comparePasswordFunction = function (
   candidatePassword,
   cb
@@ -55,6 +65,9 @@ const comparePassword: comparePasswordFunction = function (
   );
 };
 
+/**
+ * @returns User JWT Token
+ */
 const generateJWTToken: generateJWTTokenFunction = function () {
   return generateJWT({
     email: this.email,
