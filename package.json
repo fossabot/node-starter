@@ -21,14 +21,14 @@
     "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve-debug\"",
     "format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "commit": "git-cz",
-    "typedoc": "typedoc"
+    "typedoc": "typedoc --out docs src"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "async": "^3.2.0",
-    "bcrypt-nodejs": "0.0.3",
+    "bcrypt-nodejs": "^0.0.3",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
@@ -37,21 +37,21 @@
     "dotenv": "^8.2.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
-    "express-flash": "0.0.2",
+    "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
     "express-validator": "^6.6.1",
     "jsonwebtoken": "^8.5.1",
     "lusca": "^1.6.1",
-    "mongoose": "^5.10.16",
+    "mongoose": "^5.0.16",
     "pug": "^3.0.0",
-    "socket.io": "^2.3.0",
+    "socket.io": "^3.0.3",
     "swagger-jsdoc": "^5.0.1",
     "swagger-ui-express": "^4.1.5",
     "winston": "^3.2.1"
   },
   "devDependencies": {
     "@types/async": "^3.2.4",
-    "@types/bcrypt-nodejs": "0.0.31",
+    "@types/bcrypt-nodejs": "^0.0.31",
     "@types/bluebird": "^3.5.33",
     "@types/body-parser": "^1.19.0",
     "@types/chai": "^4.2.14",
@@ -61,7 +61,7 @@
     "@types/errorhandler": "^1.5.0",
     "@types/eslint": "^7.2.5",
     "@types/express": "^4.17.8",
-    "@types/express-flash": "0.0.2",
+    "@types/express-flash": "^0.0.2",
     "@types/express-session": "^1.17.0",
     "@types/jest": "^26.0.15",
     "@types/jquery": "^3.5.4",
@@ -74,7 +74,6 @@
     "@types/request": "^2.48.5",
     "@types/request-promise": "^4.1.46",
     "@types/shelljs": "^0.8.8",
-    "@types/socket.io": "^2.1.11",
     "@types/supertest": "^2.0.9",
     "@types/swagger-jsdoc": "^3.0.2",
     "@types/swagger-ui-express": "^4.1.2",
@@ -98,8 +97,8 @@
     "supertest": "^6.0.1",
     "ts-jest": "^26.4.4",
     "ts-node": "^9.0.0",
-    "typedoc": "^0.19.2",
-    "typescript": "^4.0.5"
+    "typedoc": "^0.20.0-beta.21",
+    "typescript": "^4.1.2"
   },
   "husky": {
     "hooks": {

@@ -1,5 +1,5 @@
 import errorhandler from 'errorhandler';
-import socketIO, { Socket } from 'socket.io';
+import { Socket, Server as SocketIOServer } from 'socket.io';
 import logger from './util/logger';
 import app from './app';
 import { ChatData } from './types/socket/chat';
@@ -14,7 +14,7 @@ const server = app.listen(app.get('port'), () => {
   );
   console.log('  Press CTRL-C to stop\n');
 });
-const io = socketIO(server, {
+const io = new SocketIOServer(server, {
   path: '/socketio'
 });
 io.on('connection', (socket: Socket) => {
@@ -34,9 +34,6 @@ io.on('connection', (socket: Socket) => {
 
 export default server;
 
-//https://cloudnweb.dev/2019/09/building-a-production-ready-node-js-app-with-typescript-and-docker/
-//https://dev.to/nyagarcia/pokeapi-rest-in-nodejs-with-express-typescript-mongodb-and-docker-part-1-5f8g
-//https://www.digitalocean.com/community/tutorials/containerizing-a-node-js-application-for-development-with-docker-compose
 //https://alligator.io/workflow/
 //https://egghead.io/lessons/typescript-create-high-quality-npm-packages-using-typescript
 //https://levelup.gitconnected.com/create-a-npm-module-with-typescript-c99bd0686f69
@@ -44,9 +41,4 @@ export default server;
 //https://medium.com/better-programming/how-to-setup-continuous-integration-ci-with-react-circleci-and-github-e0efd5040b03
 //https://alligator.io/workflow/continuous-integration-with-circleci/
 //https://www.freecodecamp.org/news/how-to-set-up-continuous-integration-and-deployment-for-your-react-app-d09ae4525250/
-
 //https://stackoverflow.com/questions/34559557/how-to-enable-authentication-on-mongodb-through-docker
-//https://dev.to/sonyarianto/how-to-spin-mongodb-server-with-docker-and-docker-compose-2lef
-//https://medium.com/faun/managing-mongodb-on-docker-with-docker-compose-26bf8a0bbae3
-//https://www.code4it.dev/blog/run-mongodb-on-docker
-//https://itnext.io/dockerize-a-node-js-app-connected-to-mongodb-64fdeca94797
